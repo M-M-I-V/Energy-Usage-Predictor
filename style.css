@@ -1,0 +1,315 @@
+/* style.css */
+
+/* --- Typography and Base Colors --- */
+:root {
+    --color-primary: #1e293b; /* Dark Blue for Header/Text */
+    --color-secondary: #0f172a; /* Deep Blue/Black */
+    --color-background: #f1f5f9; /* Light Gray background */
+    --color-card-bg: #ffffff; /* White card background */
+    --color-accent-orange: #f97316; /* Orange highlight for BIGGEST insight */
+    --color-bar-orange: #f59e0b; /* Orange bar */
+    --color-bar-blue: #3b82f6; /* Blue bar */
+    --color-text-light: #cbd5e1;
+}
+
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-primary);
+    line-height: 1.5;
+}
+
+.app-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1.5rem 2rem 1.5rem;
+}
+
+/* --- Header Design --- */
+.header-bar {
+    background-color: var(--color-primary);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-radius: 8px 8px 0 0;
+    margin-top: 2rem;
+}
+
+.header-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.header-date {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.tagline {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin: 0.5rem 0 1.5rem 0;
+    padding-left: 1.5rem;
+}
+
+/* --- Main Grid Layout --- */
+.main-grid {
+    display: grid;
+    /* Two columns: left card is 1.2fr, right cards are combined 1fr */
+    grid-template-columns: 1.2fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 1.5rem;
+}
+
+.card {
+    background-color: var(--color-card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+/* --- Left Card: Prediction Inputs --- */
+.predict-card {
+    grid-row: 1 / 3; /* Spans both rows on the left */
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #475569;
+}
+
+/* Removed slider specific styles as there are no sliders now */
+
+.input-text {
+    width: 60px; /* Default for number inputs, will be overridden by full-width */
+    padding: 0.75rem; /* Increased padding for better UX */
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    text-align: left; /* Changed to left align */
+    font-size: 0.95rem; /* Larger font size */
+    color: #334155; /* Darker text color */
+}
+
+.input-text.full-width {
+    width: calc(100% - 1.5rem); /* Adjust for padding */
+}
+
+/* No switch styling needed */
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-family: inherit;
+    margin-top: 0.5rem;
+}
+
+.btn-primary {
+    background-color: var(--color-accent-orange);
+    color: white;
+    width: 100%;
+}
+
+.btn-secondary { /* Kept for potential future use, but not actively used now */
+    background-color: #e2e8f0;
+    color: #475569;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.status-message {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+/* --- Top Right Card: Forecast Output --- */
+.forecast-card {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.forecast-value-container {
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1rem;
+}
+
+.forecast-value {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin: 0;
+}
+
+.forecast-value .unit {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-left: 0.5rem;
+    color: var(--color-accent-orange);
+}
+
+.estimated-cost {
+    font-size: 1rem;
+    color: #64748b;
+    margin-top: 0.5rem;
+}
+
+#mock-chart-placeholder {
+    width: 100%;
+    /* Visually align with the light grey graph in the image */
+    background-color: #f8fafc; 
+    border-radius: 4px;
+}
+
+/* --- Bottom Right Card: Drivers & Insights --- */
+.drivers-card {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
+.insights-container {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.main-insight {
+    flex-basis: 35%;
+    padding-right: 1.5rem;
+    border-right: 1px solid #e2e8f0;
+}
+
+.insight-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin: 0 0 0.25rem 0;
+}
+
+#main-insight-text {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #475569;
+    margin: 0;
+}
+
+.highlight {
+    color: var(--color-accent-orange);
+}
+
+.drivers-chart-area {
+    flex-basis: 65%;
+}
+
+.driver-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.driver-label {
+    flex-basis: 100%;
+    font-size: 0.9rem;
+    color: #475569;
+    margin-bottom: 0.25rem;
+}
+
+.bar-fill {
+    height: 8px;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.bar-fill.orange {
+    background-color: var(--color-bar-orange);
+}
+
+.bar-fill.blue {
+    background-color: var(--color-bar-blue);
+}
+
+.coefficient {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 1024px) {
+    .main-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+    }
+    
+    .predict-card {
+        grid-row: 1 / 2;
+    }
+
+    .forecast-card {
+        grid-row: 2 / 3;
+    }
+
+    .drivers-card {
+        grid-row: 3 / 4;
+    }
+
+    .header-title {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .header-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .header-date {
+        margin-top: 0.5rem;
+    }
+    .app-wrapper {
+        padding: 0 1rem 1rem 1rem;
+    }
+    .main-insight {
+        border-right: none;
+        padding-right: 0;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid #e2e8f0;
+    }
+    .insights-container {
+        flex-direction: column;
+    }
+}
