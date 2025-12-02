@@ -19,9 +19,9 @@ def predict():
     new_predicted = predict_new(new_data)
     
     if not new_predicted:
-        return jsonify({"data": None, "message": "Prediction Failed!"})
+        return jsonify({"predicted": 0, "cost": 0, "message": "Predicted Successful!"})
 
-    return jsonify({"data": new_predicted, "message": "Prediction Success!"})
+    return new_predicted
 
 if __name__ == "__main__":
     app.run()

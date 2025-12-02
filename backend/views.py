@@ -38,4 +38,4 @@ def predict_new(data):
 
     cost = current_rate * predicted
 
-    return jsonify({"Predicted": predicted, "Cost": cost})
+    return jsonify({"predicted": predicted, "cost": cost, "message": "Predicted Successful!"})
